@@ -1,0 +1,11 @@
+lo spazio non si deve lasciare tra funzioni e parentesi, perché sono un tutt'uno, lo stesso vale per le altre funzioni.
+Graffe inutili, dovrebbe essere char scelta='\0'; 
+Tra int main e la graffa serve uno spazio aggiuntivo. 
+Non va messo %d ma %c come char, lo scanf quindi sarà ("&c" , &scelta);
+Il char della prima funzione va introdotto in 'a':Dopo il printf, si potrebbe introdurre un ciclo do-while con carattere 'D', per chiederee all'utente di uscire dal programma, e non farlo rimanere bloccato nella funzione.
+In short int si dovrebbe aggiungere a=0.
+Per un autput si usa chiudere con \n.Per un miglior risultato si scrive int prodotto=(int)a*b;
+Si deve aggiungere a, in tal caso sarà a=0.
+Si scrive denominatore.
+Essendo un float ci va il diviso\ , float divisione=(float)a\b;
+Si deve introdurre un controllo in caso la stringa inserita abbia più di 9 caratteri.

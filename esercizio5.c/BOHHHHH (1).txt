@@ -1,0 +1,84 @@
+#include <stdio.h>
+
+void menu (); 						//sarebbe più pulito eliminare lo spazio tra nome funzione e ()
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+
+int main () 
+									//spazio aggiuntivo tra apertura main e graffa del blocco codice
+{
+	char scelta = {'\0'}; 			//graffe inutili (è una singola variabile char) -->  char scelta = '\0';
+	menu ();						/non è pulitissimo lo spazio tra nome funzione e le parentesi (vale per tutte le chiamate a funzione fatte in questo modo nel codice)
+	scanf ("%d", &scelta);			//errore non va messo %d ma %c --> scanf (" %c", &scelta);
+									//introdotto lo spazio nel %c per rimuovere il problema dell'invio (come visto a lezione)
+	switch (scelta)
+	{
+		case 'A':					//Andrebbe introdotto il caso della minuscola case 'A', 'a': (vale per tutti i case)
+		moltiplica();				//non è indentato correttamente
+		break;						//non è indentato correttamente
+		case 'B':
+                dividi();
+                break;
+		case 'C':
+                ins_string();
+                break;
+		//manca il default nel caso in cui l'utente inserisca un valore diverso da quelli previsti
+        //esempio
+        //default:
+        //        printf("Il valore inserito non è tra quelli consentiti! Bye bye!\n");
+        //        exit(1);
+	}
+									//si potrebbe introdurre un ciclo do-while e la scelta con carattere 'D' per chiedere all'utente di uscire dal programma
+return 0;							//non è indentato correttamente
+
+}
+
+
+void menu ()
+{
+	printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+	printf ("Come posso aiutarti?\n");
+	printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\n");
+
+}
+
+
+void moltiplica ()
+{
+	short int  a,b = 0; 			//short int  a = 0,b = 0;
+	printf ("Inserisci i due numeri da moltiplicare:"); 	//per un output più pulito è sempre meglio chiudere una stampa con \n (vale per tutti)
+	scanf ("%f", &a); 				//%d al posto del %f
+	scanf ("%d", &b);
+
+	short int prodotto = a * b; 	//per poter ottenere un risultato congruo a livello di range è meglio usare il tipo int ==> int prodotto = (int)a*b;  
+
+	printf ("Il prodotto tra %d e %d e': %d", a,b,prodotto); //
+}
+
+
+void dividi ()
+{
+        int  a,b = 0;				//int  a = 0,b = 0;
+        printf ("Inserisci il numeratore:");
+        scanf ("%d", &a);
+	printf ("Inserisci il denumeratore:"); 	//non è indentato correttamente e errore di italiano denominatore
+        scanf ("%d", &b);					//va introdotto un controllo sul denominatore che deve essere diverso da 0
+
+        int divisione = a % b; 				//ci va il diviso / al posto del % e inoltre ci va il float ==> float divisione = (float)a / b; 
+
+        printf ("La divisione tra %d e %d e': %d", a,b,divisione); //al posto dell'ultimo %d fa il %f per la variabile divisione
+}
+
+
+
+
+
+void ins_string () 
+{
+	char stringa[10]; 						//non è indentato correttamente
+        printf ("Inserisci la stringa:");
+        scanf ("%s", &stringa);             //va introdotto un controllo in caso la stringa inserita abbia più di 9 caratteri 
+}
+
